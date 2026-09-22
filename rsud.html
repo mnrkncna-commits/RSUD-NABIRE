@@ -234,17 +234,7 @@
                         </div>
                     </div>
                     
-                    <div class="bg-white rounded-xl p-4 shadow-sm border border-gray-100 flex flex-col justify-between border-l-4 border-l-gray-500 gap-1.5">
-                        <div class="flex justify-between items-center">
-                            <span class="font-semibold text-gray-700 text-xs">Honorer</span>
-                            <span id="dash-nonasn" class="text-lg font-bold text-gray-600 bg-gray-100 px-2 py-0.5 rounded-lg">0</span>
-                        </div>
-                        <div class="flex items-center gap-2 text-[10px] text-gray-500 font-medium">
-                            <span>L: <span id="dash-nonasn-l">0</span></span>
-                            <span class="text-gray-300">|</span>
-                            <span>P: <span id="dash-nonasn-p">0</span></span>
-                        </div>
-                    </div>
+                            </div>
                 </div>
             </div>
 
@@ -404,7 +394,7 @@
                                 <label class="block text-sm font-medium text-gray-700 mb-1">Kategori Masuk</label>
                                 <select id="input-kategori-masuk" onchange="toggleMutasiMasukFields()" required class="w-full px-3 py-2 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary/50 outline-none font-semibold text-blue-700">
                                     <option value="Lama">Pegawai Lama (Data Eksisting)</option>
-                                    <option value="Baru">Rekrutmen Baru (CPNS/PPPK/Honorer Baru)</option>
+                                    <option value="Baru">Rekrutmen Baru (CPNS/PPPK/Blud)</option>
                                     <option value="Mutasi">Mutasi Masuk (Dari Luar Daerah/Instansi)</option>
                                 </select>
                             </div>
@@ -518,13 +508,37 @@
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-1">Pendidikan Terakhir & Tahun</label>
-                            <input type="text" id="input-pendidikan" required class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary/50 outline-none" placeholder="CONTOH: D3 Keperawatan / 2018">
-                        </div>
+  <label class="block text-sm font-medium text-gray-700 mb-1">Pendidikan Terakhir</label>
+<select id="input-pendidikan" required class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary/50 outline-none">
+    <option value="" disabled selected>-- Pilih Pendidikan Terakhir --</option>
+    <option value="SD">SD</option>
+    <option value="SMP">SMP</option>
+    <option value="SMA/SMK">SMA/SMK</option>
+    <option value="DI">DI</option>
+    <option value="DIII">DIII</option>
+    <option value="DIV">DIV</option>
+    <option value="S1">S1</option>
+    <option value="S2">S2</option>
+    <option value="S3">S3</option>
+    <!-- Tambahan opsi baru -->
+    <option value="Spesialis">Spesialis</option>
+    <option value="Sub Spesialis">Sub Spesialis</option>
+</select>
+</div>
+<div>
+    <label class="block text-sm font-medium text-gray-700 mb-1">Profesi / Jenis Tenaga</label>
+    <select id="input-profesi" required disabled class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary/50 outline-none bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed">
+        <option value="" disabled selected>-- Pilih Pendidikan Terlebih Dahulu --</option>
+    </select>
+</div>
                         <div>
                             <label class="block text-sm font-medium text-gray-700 mb-1">Nama Sekolah / Institusi</label>
                             <input type="text" id="input-nama-sekolah" required class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary/50 outline-none" placeholder="CONTOH: Poltekkes Kemenkes Jayapura">
                         </div>
+<div>
+        <label class="block text-sm font-medium text-gray-700 mb-1">Tahun Lulus</label>
+        <input type="number" id="input-tahun-lulus" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary/50 outline-none" placeholder="CONTOH: 2015">
+    </div>
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -569,31 +583,20 @@
                                 <option value="PPPK">PPPK (P3K)</option>
                                 <option value="K2">Tenaga K2</option>
                                 <option value="BLUD">BLUD (Badan Layanan Umum Daerah)</option>
-                                <option value="Magang/Honorer">Magang / Honorer / PTT</option>
                             </select>
                         </div>
-                    </div>
-
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-1">Jenis Tenaga (Profesi)</label>
-                            <select id="input-profesi" required class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary/50 outline-none">
-                                <!-- Dipopulasi otomatis via listJenisTenaga -->
-                            </select>
-                        </div>
-                        <div>
+<div class="p-4 bg-teal-50/50 rounded-xl border border-teal-100">
+    <label class="block text-sm font-bold text-teal-800 mb-1">Jabatan Terakhir (TMT)</label>
+    <input type="text" id="input-jabatan-tmt" class="w-full px-3 py-2 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary/50 outline-none text-sm" placeholder="CONTOH: Perawat Penyelia (TMT: 12/02/2026)">
+    <p class="text-[11px] text-teal-600 mt-1"><i class="fa-solid fa-circle-info"></i> Tuliskan rincian nama jabatan fungsional atau struktural beserta tanggal TMT (Terhitung Mulai Tanggal).</p>
+</div>
+			 <div>
                             <label class="block text-sm font-medium text-gray-700 mb-1">Status OAP</label>
                             <select id="input-oap" required class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary/50 outline-none">
                                 <option value="OAP">Papua (OAP)</option>
                                 <option value="Non OAP">Non Papua (Non OAP)</option>
                             </select>
                         </div>
-                    </div>
-
-                    <div class="p-4 bg-teal-50/50 rounded-xl border border-teal-100">
-                        <label class="block text-sm font-bold text-teal-800 mb-1">Jabatan Terakhir (TMT)</label>
-                        <input type="text" id="input-jabatan-tmt" class="w-full px-3 py-2 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary/50 outline-none text-sm" placeholder="CONTOH: Perawat Penyelia (TMT: 12/02/2026)">
-                        <p class="text-[11px] text-teal-600 mt-1"><i class="fa-solid fa-circle-info"></i> Tuliskan rincian nama jabatan fungsional atau struktural beserta tanggal TMT (Terhitung Mulai Tanggal).</p>
                     </div>
 
                     <div class="border-t border-gray-100 pt-4">
@@ -769,7 +772,7 @@
 
         function filterAndRenderData() {
             // Saring berdasarkan tahun
-            employees = allEmployees.filter(emp => (emp.tahun || '2026') === globalYear);
+            employees = allEmployees.filter(emp => parseInt(emp.tahun || '2026') <= parseInt(globalYear));
             
             // Perbarui label tahun di UI
             document.querySelectorAll('.active-year-display').forEach(el => {
@@ -797,14 +800,6 @@
                     select.innerHTML += `<option value="${f.id}">${f.name}</option>`;
                 });
             });
-
-            const profesiSelect = document.getElementById('input-profesi');
-            if (profesiSelect) {
-                profesiSelect.innerHTML = '<option value="">-- Pilih Jenis Tenaga --</option>';
-                listJenisTenaga.forEach(p => {
-                    profesiSelect.innerHTML += `<option value="${p}">${p}</option>`;
-                });
-            }
         }
 
         const initAuth = async () => {
@@ -899,8 +894,8 @@
             let oap = 0, nonOap = 0;
             let oapL = 0, oapP = 0, nonOapL = 0, nonOapP = 0;
 
-            let pns = 0, cpns = 0, pppk = 0, k2 = 0, blud = 0, magang = 0;
-            let asnL = 0, asnP = 0, pppkL = 0, pppkP = 0, k2L = 0, k2P = 0, bludL = 0, bludP = 0, magangL = 0, magangP = 0;
+            let pns = 0, cpns = 0, pppk = 0, k2 = 0, blud = 0;
+            let asnL = 0, asnP = 0, pppkL = 0, pppkP = 0, k2L = 0, k2P = 0, bludL = 0, bludP = 0;
 
             activeEmployees.forEach(emp => {
                 if(emp.statusOAP === 'OAP') {
@@ -927,10 +922,6 @@
                 else if(emp.statusASN === 'BLUD') {
                     blud++;
                     if (emp.gender === 'L') bludL++; else bludP++;
-                }
-                else if(emp.statusASN === 'Magang/Honorer') {
-                    magang++;
-                    if (emp.gender === 'L') magangL++; else magangP++;
                 }
             });
 
@@ -1491,8 +1482,7 @@
                     ['PNS/CPNS', pns],
                     ['PPPK', pppk],
                     ['K2', k2],
-                    ['BLUD', blud],
-                    ['Magang/Honorer', nonasn]
+                    ['BLUD', blud]
                 ],
                 theme: 'striped',
                 headStyles: { fillColor: [15, 118, 110] }
@@ -1571,6 +1561,74 @@
             // Update tahun display
             document.querySelectorAll('.active-year-display').forEach(el => el.innerText = globalYear);
         });
+
+
+    // 1. Data mapping Pendidikan ke Profesi (Silakan edit sesuai kebutuhan data pegawai/RS)
+  // 1. Data mapping Pendidikan ke Profesi (Silakan edit sesuai kebutuhan data pegawai/RS)
+    const profesiData = {
+        "SD": ["Pramubakti", "Tenaga Kebersihan"],
+        "SMP": ["Pramubakti", "Tenaga Kebersihan", "Sopir"],
+        "SMA/SMK": ["Administrasi Umum", "Satpam", "Pramusaji", "Sopir", "Resepsionis"],
+        "DI": ["Asisten Perawat", "Asisten Apoteker"],
+        "DIII": ["Perawat", "Bidan", "Analis Kesehatan", "Farmasi", "Kes. Lingkungan", "Kes. Refraksi Optisi", "Keuangan & Perbankan", "Lab. Medis", "Manajemen Administrasi RS","Perawat Anestesi","Radiografer","Radiagnostik","Radiologi","Radiagnostik & Radioterapi","Rekam Medis","Tek.Laboratorium Medis","Teknik Gigi","Tek.Radiagnostik & Radioterapi","Kesehatan Gigi"],
+        "DIV": ["Perawat Pendidik", "Bidan Pendidik", "Analis Kesehatan"],
+        "S1": ["Dokter Umum", "Dokter Gigi", "Apoteker","Farmasi", "Ners", "Kesehatan Masyarakat", "Ahli Gizi", "ilmu Adm.Negara","Komputer","Manajemen","Manajemen Kes","Pertanian","Sosial","Terapan Kebidanan","Teknik"],
+        "S2": ["Keperawatan", "Kesehatan","Magister Kesehatan","MARS","Sains"],
+        "S3": ["Konsultan / Peneliti Utama"],
+        "Spesialis": [
+            "Dokter Spesialis Penyakit Dalam",
+            "Dokter Spesialis Anak",
+            "Dokter Spesialis Bedah",
+            "Dokter Spesialis Obstetri & Ginekologi (Obgyn)",
+            "Dokter Spesialis Anestesiologi",
+            "Dokter Spesialis Radiologi",
+            "Dokter Spesialis Patologi Klinik",
+            "Dokter Spesialis Mata",
+            "Dokter Spesialis THT",
+            "Dokter Spesialis Saraf",
+            "Dokter Spesialis Paru",
+            "Dokter Spesialis Jiwa",
+            "Dokter Spesialis Jantung & Pembuluh Darah"
+        ],
+        "Sub Spesialis": [
+            "Dokter Sub-Spesialis Bedah Konsultan",
+            "Dokter Sub-Spesialis Anak Konsultan",
+            "Dokter Sub-Spesialis Penyakit Dalam Konsultan",
+            "Dokter Sub-Spesialis Anestesi Konsultan",
+            "Dokter Sub-Spesialis Obgyn Konsultan"
+        ]
+    };
+
+    // 2. Ambil elemen dropdown
+    const pendidikanSelect = document.getElementById('input-pendidikan');
+    const profesiSelect = document.getElementById('input-profesi');
+
+    // 3. Tambahkan event listener saat dropdown pendidikan diubah
+    pendidikanSelect.addEventListener('change', function() {
+        const selectedEdu = this.value;
+        const options = profesiData[selectedEdu] || []; // Ambil array profesi berdasarkan pilihan
+
+        // Kosongkan opsi profesi yang ada sebelumnya
+        profesiSelect.innerHTML = '<option value="" disabled selected>-- Pilih Profesi --</option>';
+
+        if (options.length > 0) {
+            // Aktifkan dropdown profesi jika ada datanya
+            profesiSelect.disabled = false;
+            profesiSelect.classList.remove('bg-gray-100', 'disabled:opacity-50', 'disabled:cursor-not-allowed'); 
+            
+            // Masukkan daftar profesi ke dalam dropdown
+            options.forEach(function(profesi) {
+                const opt = document.createElement('option');
+                opt.value = profesi;
+                opt.textContent = profesi;
+                profesiSelect.appendChild(opt);
+            });
+        } else {
+            // Nonaktifkan kembali jika tidak ada opsi
+            profesiSelect.disabled = true;
+            profesiSelect.classList.add('bg-gray-100', 'disabled:opacity-50', 'disabled:cursor-not-allowed');
+        }
+    });
 
     </script>
 </body>
